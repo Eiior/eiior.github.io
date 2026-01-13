@@ -59,7 +59,7 @@ header nav a:hover::after {
 #outils,
 #projets,
 #contact {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 60px;
 }
 
 /* SECTIONS */
@@ -413,3 +413,4 @@ section {
     box-shadow: 0 0 15px 3px rgba(59, 31, 31, 0.8);
     transition: box-shadow 0.3s ease;
 }
+
