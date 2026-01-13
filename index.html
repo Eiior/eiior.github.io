@@ -108,7 +108,7 @@
     </p>
 
     <div class="cards">
-        <div class="card card-box">
+        <div class="card card-box" id="realiser">
             <div class="card-front">
                 <h4>Réaliser</h4>
             </div>
@@ -121,7 +121,7 @@
             </div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box" id="optimiser">
             <div class="card-front">
                 <h4>Optimiser</h4>
             </div>
@@ -133,7 +133,7 @@
             </div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box" id="administrer">
             <div class="card-front">
                 <h4>Administrer</h4>
             </div>
@@ -146,7 +146,7 @@
             </div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box" id="gerer">
             <div class="card-front">
                 <h4>Gérer</h4>
             </div>
@@ -158,7 +158,7 @@
             </div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box" id="conduire">
             <div class="card-front">
                 <h4>Conduire</h4>
             </div>
@@ -170,7 +170,7 @@
             </div>
         </div>
 
-        <div class="card card-box">
+        <div class="card card-box" id="collaborer">
             <div class="card-front">
                 <h4>Collaborer</h4>
             </div>
@@ -241,37 +241,37 @@
         </div>
     </div>
 
-<div class="outils-section">
-    <h3>Base de données</h3>
-    <div class="outils-row">
+    <div class="outils-section">
+        <h3>Base de données</h3>
+        <div class="outils-row">
 
-        <div class="outil">
-            <i class="fa-solid fa-database"></i>
-            <span>PL/SQL</span>
+            <div class="outil">
+                <i class="fa-solid fa-database"></i>
+                <span>PL/SQL</span>
+            </div>
+
+            <div class="outil">
+                <i class="fa-brands fa-envira"></i>
+                <span>MongoDB</span>
+            </div>
+
+            <div class="outil">
+                <i class="fa-solid fa-code"></i>
+                <span>NoSQL</span>
+            </div>
+
+            <div class="outil">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Looping</span>
+            </div>
+
+            <div class="outil">
+                <i class="fa-solid fa-database"></i>
+                <span>Oracle</span>
+            </div>
+
         </div>
-
-        <div class="outil">
-            <i class="fa-brands fa-envira"></i>
-            <span>MongoDB</span>
-        </div>
-
-        <div class="outil">
-            <i class="fa-solid fa-code"></i>
-            <span>NoSQL</span>
-        </div>
-
-        <div class="outil">
-            <i class="fa-solid fa-diagram-project"></i>
-            <span>Looping</span>
-        </div>
-
-        <div class="outil">
-            <i class="fa-solid fa-database"></i>
-            <span>Oracle</span>
-        </div>
-
     </div>
-</div>
 
 </section>
 
@@ -292,20 +292,19 @@
         </div>
 
         <div class="projet-img">
-            <img src="images/topologie.png" alt="Machine virtuelle">
+            <img src="images/topologie.png" alt="topologie">
             <div class="tags">
-                <span>Administrer</span>
-                <span>Conduire</span>
-                <span>Collaborer</span>
+                <span data-competence="administrer">Administrer</span>
+                <span data-competence="conduire">Conduire</span>
+                <span data-competence="collaborer">Collaborer</span>
             </div>
         </div>
     </div>
 
     <div class="projet card-box">
         <div class="projet-text">
-            <h3>Mise en place d’une machine virtuelle</h3>
+            <h3>Mise en place d’un serveur Owncloud</h3>
             <ul>
-                <li>Installation et mise en service d’un serveur OwnCloud</li>
                 <li>Mise en place et configuration du serveur Apache</li>
                 <li>Sécurisation des échanges via le protocole HTTPS</li>
                 <li>Administration à distance de la machine via SSH</li>
@@ -315,8 +314,8 @@
         <div class="projet-img">
             <img src="images/owncloud.png" alt="owncloud">
             <div class="tags">
-                <span>Réaliser</span>
-                <span>Administrer</span>
+                <span data-competence="realiser">Réaliser</span>
+                <span data-competence="administrer">Administrer</span>
             </div>
         </div>
     </div>
@@ -332,10 +331,10 @@
         </div>
 
         <div class="projet-img">
-            <img src="images/dashboard.png" alt="Dashboard Oracle Apex">
+            <img src="images/dashboard.png" alt="Dashboard">
             <div class="tags">
-                <span>Gérer</span>
-                <span>Réaliser</span>
+                <span data-competence="gerer">Gérer</span>
+                <span data-competence="realiser">Réaliser</span>
             </div>
         </div>
     </div>
@@ -352,8 +351,8 @@
 
         <div class="projet-img">
             <div class="tags">
-                <span>Administrer</span>
-                <span>Optimiser</span>
+                <span data-competence="administrer">Administrer</span>
+                <span data-competence="optimiser">Optimiser</span>
             </div>
         </div>
     </div>
@@ -368,8 +367,8 @@
 
         <div class="projet-img">
             <div class="tags">
-                <span>Optimiser</span>
-                <span>Collaborer</span>
+                <span data-competence="optimiser">Optimiser</span>
+                <span data-competence="collaborer">Collaborer</span>
             </div>
         </div>
     </div>
@@ -389,6 +388,29 @@
 </section>
 
 </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".tags span").forEach(tag => {
+        tag.addEventListener("click", () => {
+            const competenceId = tag.getAttribute("data-competence");
+            const competenceDiv = document.getElementById(competenceId);
+            if (competenceDiv) {
+                // Scroll vers la div
+                competenceDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+                
+                // Ajouter la classe highlight
+                competenceDiv.classList.add("highlight");
+                
+                // Retirer la classe après 3 secondes
+                setTimeout(() => {
+                    competenceDiv.classList.remove("highlight");
+                }, 3000);
+            }
+        });
+    });
+});
+</script>
 
 </body>
 </html>
