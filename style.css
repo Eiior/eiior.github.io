@@ -374,11 +374,18 @@ section {
 }
 
 .tags span {
-    background: #F5EFEA;
-    border-radius: 8px;
     padding: 5px 10px;
+    border-radius: 8px;
     font-size: 12px;
     color: #3B1F1F;
+    background: #F5EFEA;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tags span:hover {
+    background: #3B1F1F;
+    color: #FFFEFA;
 }
 
 /* CONTACT */
@@ -400,4 +407,9 @@ section {
 .contact-links a:hover {
     background: #3B1F1F;
     color: #FFFEFA;
+}
+
+.highlight {
+    box-shadow: 0 0 15px 3px rgba(59, 31, 31, 0.8);
+    transition: box-shadow 0.3s ease;
 }
